@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class NewsListVM @Inject constructor(var newsApi: NewsApi) : ViewModel() {
     private val disposable = CompositeDisposable()
-    private val newsResources: MutableLiveData<NewsResource> = MutableLiveData()
+    private var newsResources: MutableLiveData<NewsResource> = MutableLiveData()
 
 
     private val TAG: String = "NewsListVM"
@@ -23,10 +23,12 @@ class NewsListVM @Inject constructor(var newsApi: NewsApi) : ViewModel() {
         Log.d(TAG, "init")
     }
 
-    fun observNews(): LiveData<NewsResource> {
+    fun observeNews(): LiveData<NewsResource> {
+        newsResources.value = NewsResource("error",0, emptyList())
         disposable.add(newsApi.getNews(Constants.API_KEY, "US")
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            .subscribe { newsResources.value = it })
+            .subscribe ({ newsResources.value = it },{ newsResources.value!!.status = it.localizedMessage}))
+
         return newsResources
     }
 

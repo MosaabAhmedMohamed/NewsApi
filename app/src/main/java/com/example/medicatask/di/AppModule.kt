@@ -85,8 +85,8 @@ class AppModule {
     @Provides
     fun provideRequestOptions(): RequestOptions {
         return RequestOptions
-            .placeholderOf(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_background)
+            .placeholderOf(R.drawable.world)
+            .error(R.drawable.world)
     }
 
     @Singleton
