@@ -25,7 +25,7 @@ class NewsListVM @Inject constructor(var newsApi: NewsApi) : ViewModel() {
 
     fun observeNews(): LiveData<NewsResource> {
         newsResources.value = NewsResource("error",0, emptyList())
-        disposable.add(newsApi.getNews(Constants.API_KEY, "US")
+        disposable.add(newsApi.getNews()
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe ({ newsResources.value = it },{ newsResources.value!!.status = it.localizedMessage}))
 

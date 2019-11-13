@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.RequestManager
 import com.example.medicatask.R
 import com.example.medicatask.models.News
+import com.example.medicatask.ui.main.MainActivity
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_news_detial.*
 import javax.inject.Inject
@@ -31,5 +32,10 @@ class NewsDetail : DaggerFragment() {
         gilde.load(news?.urlToImage).into(news_image)
         title_tv.setText(news?.title)
         desc_tv.setText(news?.description)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (activity as MainActivity).setActionBarTitle(getString(R.string.news_detail))
     }
 }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.medicatask.R
 import com.example.medicatask.models.News
+import com.example.medicatask.ui.main.MainActivity
 import com.example.medicatask.util.LoadingDialog
 import com.example.medicatask.util.OnItemClickLisnter
 import com.example.medicatask.viewmodels.ViewModelProviderFactory
@@ -60,6 +61,11 @@ class NewsList : DaggerFragment(), OnItemClickLisnter, SwipeRefreshLayout.OnRefr
         initRefreshLayout()
         initList()
         observeNews()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (activity as MainActivity).setActionBarTitle(getString(R.string.news_list))
     }
 
     private fun initRefreshLayout() {

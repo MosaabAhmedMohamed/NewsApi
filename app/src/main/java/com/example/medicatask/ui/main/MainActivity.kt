@@ -1,12 +1,9 @@
 package com.example.medicatask.ui.main
 
-import android.app.ProgressDialog
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavOptions
 import com.example.medicatask.R
-import com.example.medicatask.util.LoadingDialog
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : DaggerAppCompatActivity() {
 
@@ -15,10 +12,16 @@ class MainActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         init()
+
     }
 
 
     private fun init() {
 
+    }
+
+    fun setActionBarTitle(title: String)
+    {
+        title_tv.setText(title)
     }
 }

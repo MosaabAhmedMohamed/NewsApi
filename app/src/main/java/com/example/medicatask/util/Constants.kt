@@ -6,7 +6,7 @@ class Constants {
 
 
         const val API_KEY: String = "6c29d74094a34bf5be92d544a0f86f30"
-        const val BASE_URL: String = "https://newsapi.org/v2/"
+        const val BASE_URL: String = "http://demo4554796.mockable.io/"
 
         const val CONNECTION_TIMEOUT :Long = 10
         const val READ_TIMEOUT :Long = 10

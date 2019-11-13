@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Medica Task</string>
     <string name="news_list">News</string>
+    <string name="news_detail">News Detail</string>
 </resources>

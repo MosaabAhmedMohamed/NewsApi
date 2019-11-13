@@ -47,7 +47,7 @@ class AppModule {
             .writeTimeout(Constants.WRITE_TIMEOUT, TimeUnit.SECONDS)
             .retryOnConnectionFailure(false)
             .addInterceptor(httpLoggingInterceptor)
-            .build();
+            .build()
     }
 
     /*
